@@ -1,0 +1,145 @@
+{
+  "summary": {
+    "total_messages": 5,
+    "legitimate_messages": 1,
+    "suspicious_messages": 0,
+    "phishing_messages": 4,
+    "highest_risk_score": 205
+  },
+  "results": [
+    {
+      "id": "M1",
+      "channel": "email",
+      "classification": "phishing",
+      "risk_score": 205,
+      "triggered_indicators": [
+        {
+          "name": "suspicious_or_unknown_sender",
+          "weight": 20,
+          "evidence": "sender domain 'rnicrosoft.com' is not in the trusted domain set"
+        },
+        {
+          "name": "lookalike_domain",
+          "weight": 30,
+          "evidence": "sender domain 'rnicrosoft.com' resembles 'microsoft.com' (edit distance: 2)"
+        },
+        {
+          "name": "urgent_language",
+          "weight": 20,
+          "evidence": "urgency keywords found; subject contains: urgent; body contains: immediately, today, account will be disabled"
+        },
+        {
+          "name": "credential_request",
+          "weight": 30,
+          "evidence": "credential-related terms found: password, reset your password"
+        },
+        {
+          "name": "suspicious_link",
+          "weight": 20,
+          "evidence": "link domain 'security-reset-login-example.com' appears suspicious (excessive hyphens in domain)"
+        },
+        {
+          "name": "non_https_link",
+          "weight": 20,
+          "evidence": "link 'http://security-reset-login-example.com' uses http instead of https"
+        },
+        {
+          "name": "authority_impersonation",
+          "weight": 25,
+          "evidence": "sender claims to be Microsoft but uses domain 'rnicrosoft.com' instead of 'microsoft.com'"
+        },
+        {
+          "name": "external_link_inconsistent",
+          "weight": 20,
+          "evidence": "email from 'rnicrosoft.com' contains a link to unrelated domain 'security-reset-login-example.com'"
+        },
+        {
+          "name": "display_text_destination_mismatch",
+          "weight": 20,
+          "evidence": "link displays 'Reset your Microsoft password' (implies microsoft.com) but points to 'security-reset-login-example.com'"
+        }
+      ]
+    },
+    {
+      "id": "M2",
+      "channel": "email",
+      "classification": "legitimate",
+      "risk_score": 0,
+      "triggered_indicators": []
+    },
+    {
+      "id": "M3",
+      "channel": "email",
+      "classification": "phishing",
+      "risk_score": 90,
+      "triggered_indicators": [
+        {
+          "name": "suspicious_or_unknown_sender",
+          "weight": 20,
+          "evidence": "sender domain 'company-secure.net' is not in the trusted domain set"
+        },
+        {
+          "name": "urgent_language",
+          "weight": 20,
+          "evidence": "urgency keywords found; subject contains: urgent; body contains: immediately, time-sensitive"
+        },
+        {
+          "name": "payment_request",
+          "weight": 25,
+          "evidence": "payment-related terms found: transfer, invoice"
+        },
+        {
+          "name": "dangerous_attachment",
+          "weight": 25,
+          "evidence": "attachment 'invoice.xlsm' has dangerous type 'spreadsheet_macro_enabled'"
+        }
+      ]
+    },
+    {
+      "id": "M4",
+      "channel": "sms",
+      "classification": "phishing",
+      "risk_score": 75,
+      "triggered_indicators": [
+        {
+          "name": "suspicious_or_unknown_sender",
+          "weight": 20,
+          "evidence": "SMS sender '+391234567890' is a long-form number, inconsistent with a named service sender"
+        },
+        {
+          "name": "urgent_language",
+          "weight": 20,
+          "evidence": "urgency keywords found; body contains: on hold"
+        },
+        {
+          "name": "non_https_link",
+          "weight": 20,
+          "evidence": "link 'http://delivery-check.example' uses http instead of https"
+        },
+        {
+          "name": "suspicious_phone_pattern",
+          "weight": 15,
+          "evidence": "SMS sender '+391234567890' is a long-form number, not a typical service short code"
+        }
+      ]
+    },
+    {
+      "id": "M5",
+      "channel": "social",
+      "classification": "phishing",
+      "risk_score": 50,
+      "triggered_indicators": [
+        {
+          "name": "suspicious_or_unknown_sender",
+          "weight": 20,
+          "evidence": "sender 'IT Support Desk' uses handle 'it-support-help', which does not match the claimed name"
+        },
+        {
+          "name": "credential_request",
+          "weight": 30,
+          "evidence": "credential-related terms found: password, login, username"
+        }
+      ]
+    }
+  ]
+}
