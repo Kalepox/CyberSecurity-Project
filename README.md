@@ -5,22 +5,47 @@
 ---
 
 ## Group Members
-Write here the name, surname, and student ID of all group members.
-
-Example:
 - Alp Kale -- s325632
 - Ege Kaya -- s326635
-- Dogan Ege Bulte -- s345678
+- Dogan Ege Bulte -- s325192
 
 ---
 
 ## Project Description
-Provide a short explanation of what the program does.
+This project analyzes messages (email/SMS/social media) and score how "phishy" they look using explicit rules—no AI/ML.
 
-Example:
-This project implements a simple authorization engine.
-The program reads JSON input files, evaluates the requests according to the given policies, and produces a JSON output containing the final decision for each request.
+Sender name/address
+Subject/body text
+Links (display text vs actual URL)
+Attachments
 
+Detection rules:
+-Each rule checks for suspicious patterns and assigns a weight if triggered:
+
+-Lookalike domain (weight: 30)
+
+-Sender is no-reply@rnicrosoft.com (looks like microsoft.com)
+ Evidence: "sender domain rnicrosoft.com resembles microsoft.com"
+
+-Urgent language (weight: 20)
+ Subject/body contains: "urgent", "immediately", "today", "account will be disabled"
+ Evidence: "subject contains: urgent; body contains: today, immediately"
+
+-Credential request (weight: 25)
+ Text mentions: "password", "reset your password", "username", "login"
+ Evidence: "credential-related terms found: password, reset your password"
+
+-Non-HTTPS link (weight: 20)
+ Link uses http:// instead of https://
+ Evidence: "link http://bad-site.com uses http instead of https"
+
+-Dangerous attachment (weight: 25)
+ File type: .xlsm (macro-enabled Excel), .exe, .zip
+ Evidence: "attachment invoice.xlsm has dangerous type spreadsheet_macro_enabled"
+
+Scoring:
+Project adds up the weights of all triggered rules.
+Total score → classification: (0-19: legitimate, 20-49: suspicious, 50+: phishing)
 ---
 
 ## Project Structure
@@ -38,8 +63,7 @@ Example:
 ## Python Version
 Specify the Python version used for the project.
 
-Example:
-Python 3.11
+Python 3.14
 
 ---
 
