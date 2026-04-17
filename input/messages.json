@@ -1,0 +1,74 @@
+{
+  "messages": [
+    {
+      "id": "M1",
+      "channel": "email",
+      "sender_name": "Microsoft Security",
+      "sender_address": "no-reply@rnicrosoft.com",
+      "subject": "Urgent password reset required",
+      "body": "Your account will be disabled today unless you reset your password immediately.",
+      "links": [
+        {
+          "display_text": "Reset your Microsoft password",
+          "actual_url": "http://security-reset-login-example.com"
+        }
+      ],
+      "attachments": []
+    },
+    {
+      "id": "M2",
+      "channel": "email",
+      "sender_name": "Administration Office",
+      "sender_address": "office@polito.it",
+      "subject": "Exam calendar update",
+      "body": "The updated exam calendar is available on the official student portal.",
+      "links": [
+        {
+          "display_text": "Student Portal",
+          "actual_url": "https://students.polito.it"
+        }
+      ],
+      "attachments": []
+    },
+    {
+      "id": "M3",
+      "channel": "email",
+      "sender_name": "Chief Financial Officer",
+      "sender_address": "cfo-payment@company-secure.net",
+      "subject": "Urgent transfer before 17:00",
+      "body": "Please execute the attached invoice immediately. This is confidential and time-sensitive.",
+      "links": [],
+      "attachments": [
+        {
+          "filename": "invoice.xlsm",
+          "type": "spreadsheet_macro_enabled"
+        }
+      ]
+    },
+    {
+      "id": "M4",
+      "channel": "sms",
+      "sender_name": "Parcel Service",
+      "sender_address": "+391234567890",
+      "subject": "",
+      "body": "Your parcel is on hold. Confirm delivery now at http://delivery-check.example",
+      "links": [
+        {
+          "display_text": "Confirm delivery",
+          "actual_url": "http://delivery-check.example"
+        }
+      ],
+      "attachments": []
+    },
+    {
+      "id": "M5",
+      "channel": "social",
+      "sender_name": "IT Support Desk",
+      "sender_address": "it-support-help",
+      "subject": "",
+      "body": "We detected a login issue on your account. Send your username and password here to restore access.",
+      "links": [],
+      "attachments": []
+    }
+  ]
+}
